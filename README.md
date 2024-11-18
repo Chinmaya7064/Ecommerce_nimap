@@ -1,6 +1,6 @@
-# Ecommerce_nimap
+# Product Management System
 
-# Node.js MySQL Project
+## Node.js MySQL Project
 
 This is a Node.js project using Express.js and MySQL as the database.
 
