@@ -1,0 +1,75 @@
+<%- include('includes/head.ejs') %>
+</head>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><%= admin ? 'Admin Products' : 'Product List' %></h1>
+                    <% if (products.length) { %>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr class="text-center">
+                                    <th >Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Category</th>
+                                    <th>Category ID</th>
+                                    <th>Price</th>
+                                    <% if (admin) { %>
+                                        <th>Actions</th>
+                                    <% } else { %>
+                                        <th>Details</th>
+                                    <% } %>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (let product of products) { %>
+                                    <tr class="text-center">
+                                        <td><%= product.id %></td>
+                                        <td><%= product.title %></td>
+                                        <td><%= product.category.title %></td>
+                                        <td><%= product.categoryId %></td>
+                                        <td>Rs. <%= product.price %></td>
+                                        <% if (admin) { %>
+                                            <td class="d-flex justify-content-around">
+                                                <a href="/products/edit/<%= product.id %>" class="btn btn-primary btn-sm">Edit</a>
+                                                <form action="/products/delete" method="post" style="display: inline-block;">
+                                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        <% } else { %>
+                                            <td>
+                                                <a href="/product/details/<%= product.id %>" class="btn btn-primary btn-sm">View Details</a>
+                                            </td>
+                                        <% } %>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    <% } else { %>
+                        <div>No products available</div>
+                    <% } %>
+
+                    <!-- Pagination Controls -->
+                    <div class="pagination">
+                        <button class="btn btn-outline-secondary" <%= currentPage === 1 ? 'disabled' : '' %> 
+                            onclick="window.location.href='?page=<%= currentPage - 1 %>'">Previous</button>
+                        
+                        <% for (let i = 1; i <= totalPages; i++) { %>
+                            <button class="btn pageNumber <%= i === currentPage ? 'btn-primary' : 'btn-outline-secondary' %>" 
+                                onclick="window.location.href='?page=<%= i %>'">
+                                <%= i %>
+                            </button>
+                        <% } %>
+
+                        <button class="btn btn-outline-secondary" <%= currentPage === totalPages ? 'disabled' : '' %> 
+                            onclick="window.location.href='?page=<%= currentPage + 1 %>'">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
