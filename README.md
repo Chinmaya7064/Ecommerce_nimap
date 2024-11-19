@@ -28,37 +28,50 @@ This is a Node.js project using Express.js and MySQL as the database.
 
 ## Endpoints to Test
 1. Home Page
- - Endpoint: GET /
+ - Endpoint: GET
+   /
  - Description: Displays the list of all products.
 2. Admin Products Page
- - Endpoint: GET /products
+ - Endpoint: GET
+   /products
  - Description: Displays the admin product list with options to edit and delete.
 3. Add Product
- - Endpoint: GET /products/add
+ - Endpoint: GET
+   /products/add
   - Description: Displays the form to add a new product.
- - Endpoint: POST /products/add
+ - Endpoint: POST
+   /products/add
   - Description: Submits the form to add a new product.
 4. Edit Product
- - Endpoint: GET /products/edit/:productId
+ - Endpoint: GET
+   /products/edit/:productId
   - Description: Displays the form to edit an existing product.
- - Endpoint: POST /products/edit
+ - Endpoint: POST
+   /products/edit
   - Description: Submits the form to update the product.
 5. Delete Product
- - Endpoint: POST /products/delete
+ - Endpoint: POST
+   /products/delete
  - Description: Deletes a product by its ID.
 6. Categories List
- - Endpoint: GET /categories
+ - Endpoint: GET
+   /categories
  - Description: Displays the list of all categories with options to edit and delete.
 7. Add Category
- - Endpoint: GET /categories/add
+ - Endpoint: GET
+   /categories/add
   - Description: Displays the form to add a new category.
- - Endpoint: POST /categories/add
+ - Endpoint: POST
+   /categories/add
   - Description: Submits the form to add a new category.
 8. Edit Category
- - Endpoint: GET /categories/edit/:categoryId
+ - Endpoint: GET
+   /categories/edit/:categoryId
   - Description: Displays the form to edit a category.
- - Endpoint: POST /categories/edit
+ - Endpoint: POST
+   /categories/edit
   -  Description: Submits the form to update the category.
 9. Delete Category
- - Endpoint: POST /categories/delete
+ - Endpoint: POST
+   /categories/delete
  - Description: Deletes a category by its ID.
